@@ -19,7 +19,7 @@
   flex-grow: 1;
 }
 
-.clear-button {
+.clear-button, .remove-button {
   background: none;
   color: #666;
   border: none;
@@ -77,4 +77,7 @@
 .option.highlighted {
   background-color: hsl(200, 100%, 50%);
   color: white;
+}
+.option-tag{
+    
 }

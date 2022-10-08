@@ -1,24 +1,35 @@
-
-import { useState } from 'react'
-import './App.css'
-import { Select } from './Select'
+import { useState } from "react";
+import "./App.css";
+import { Select, SelectOption } from "./Select";
 
 const options = [
-  {label: "First", value: 1},
-  {label: "Second", value: 2},
-  {label: "Third", value: 3},
-  {label: "Fourth", value: 4},
-  {label: "Fifth", value: 5}
-]
+  { label: "First", value: 1 },
+  { label: "Second", value: 2 },
+  { label: "Third", value: 3 },
+  { label: "Fourth", value: 4 },
+  { label: "Fifth", value: 5 },
+];
 
 function App() {
-  const [value, setValue] = useState<typeof options[0] | undefined>(options[0])
+  const [value1, setValue1] = useState<SelectOption[]>([options[0]]);
+  const [value2, setValue2] = useState<SelectOption | undefined>(options[0]);
 
   return (
     <div>
-      <Select options={options} value={value} onChange={opt => setValue(opt)}/>
+      <Select
+        multiple
+        options={options}
+        value={value1}
+        onChange={(opt) => setValue1(opt)}
+      />
+      <br></br>
+      <Select
+        options={options}
+        value={value2}
+        onChange={(opt) => setValue2(opt)}
+      />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
